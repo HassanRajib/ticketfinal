@@ -1,16 +1,12 @@
 "use client";
 
-
-
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL; // <-- REPLACE THIS
-
 
 export const initiatePayment = async ({
   eventId,

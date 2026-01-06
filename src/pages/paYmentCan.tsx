@@ -13,7 +13,7 @@ const PaymentCancel = () => {
 
     // Redirect back to event page
     navigate(returnUrl, { replace: true });
-  }, [navigate]);
+  }, []);
 
   return <p>Redirecting back to event...</p>;
 };
