@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const serverUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -22,13 +22,13 @@ const AdminEvent = () => {
   // handleEdit is no longer needed here, navigation will handle it.
 
   const handleDelete = async (id: string) => {
-    const confirm = window.confirm('Are you sure?');
+    const confirm = window.confirm("Are you sure?");
     if (!confirm) return;
     try {
       await axios.delete(`${serverUrl}api/events/${id}`);
       fetchEvents(); // Refresh list after delete
     } catch (error) {
-      console.error('failed to delete', error);
+      console.error("failed to delete", error);
     }
   };
 
@@ -37,7 +37,7 @@ const AdminEvent = () => {
       const response = await axios.get(`${serverUrl}api/events`);
       setEvents(response.data);
     } catch (err) {
-      console.error('Failed to fetch events:', err);
+      console.error("Failed to fetch events:", err);
     }
   };
 
@@ -50,7 +50,7 @@ const AdminEvent = () => {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Manage Events</h1>
         <button
-          onClick={() => navigate('/admin/events/new')} // Navigate to the new event form
+          onClick={() => navigate("/admin/events/new")} // Navigate to the new event form
           className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
         >
           + Add Event

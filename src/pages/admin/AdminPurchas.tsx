@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 interface Ticket {
   _id: string;
@@ -21,13 +21,17 @@ const serverUrl = import.meta.env.VITE_BACKEND_URL;
 const AdminPurchases = () => {
   const [tickets, setTickets] = useState<Ticket[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedEvent, setSelectedEvent] = useState<string>('All');
+  const [selectedEvent, setSelectedEvent] = useState<string>("All");
 
-  const eventTitles = ['All', ...Array.from(new Set(tickets.map(ticket => ticket.eventId?.title)))];
+  const eventTitles = [
+    "All",
+    ...Array.from(new Set(tickets.map((ticket) => ticket.eventId?.title))),
+  ];
 
-  const filteredTickets = selectedEvent === 'All'
-  ? tickets
-  : tickets.filter(ticket => ticket.eventId?.title === selectedEvent);
+  const filteredTickets =
+    selectedEvent === "All"
+      ? tickets
+      : tickets.filter((ticket) => ticket.eventId?.title === selectedEvent);
 
   useEffect(() => {
     const fetchTickets = async () => {
@@ -51,17 +55,19 @@ const AdminPurchases = () => {
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">Ticket Purchases</h2>
       <div className="mb-4">
-      <label className="font-semibold mr-2">Filter by Event:</label>
-     <select
-      value={selectedEvent}
-      onChange={(e) => setSelectedEvent(e.target.value)}
-      className="border px-3 py-1 rounded"
-      >
-    {eventTitles.map((title, index) => (
-      <option key={index} value={title}>{title}</option>
-    ))}
-    </select>
-    </div>
+        <label className="font-semibold mr-2">Filter by Event:</label>
+        <select
+          value={selectedEvent}
+          onChange={(e) => setSelectedEvent(e.target.value)}
+          className="border px-3 py-1 rounded"
+        >
+          {eventTitles.map((title, index) => (
+            <option key={index} value={title}>
+              {title}
+            </option>
+          ))}
+        </select>
+      </div>
       {tickets.length === 0 ? (
         <p>No tickets purchased yet.</p>
       ) : (
@@ -82,18 +88,20 @@ const AdminPurchases = () => {
             </thead>
             <tbody>
               {filteredTickets.map((ticket) => (
-  <tr key={ticket._id} className="border-t text-black">
-    <td className="px-4 py-2">{ticket.serial}</td>
-    <td className="px-4 py-2">{ticket.eventId?.title}</td>
-    <td className="px-4 py-2">{ticket.name}</td>
-    <td className="px-4 py-2">{ticket.email}</td>
-    <td className="px-4 py-2">{ticket.phone}</td>
-    <td className="px-4 py-2">{ticket.dob}</td>
-    <td className="px-4 py-2">{ticket.quantity}</td>
-    <td className="px-4 py-2">${ticket.totalPrice}</td>
-    <td className="px-4 py-2">{new Date(ticket.createdAt).toLocaleString()}</td>
-  </tr>
-))}
+                <tr key={ticket._id} className="border-t text-black">
+                  <td className="px-4 py-2">{ticket.serial}</td>
+                  <td className="px-4 py-2">{ticket.eventId?.title}</td>
+                  <td className="px-4 py-2">{ticket.name}</td>
+                  <td className="px-4 py-2">{ticket.email}</td>
+                  <td className="px-4 py-2">{ticket.phone}</td>
+                  <td className="px-4 py-2">{ticket.dob}</td>
+                  <td className="px-4 py-2">{ticket.quantity}</td>
+                  <td className="px-4 py-2">${ticket.totalPrice}</td>
+                  <td className="px-4 py-2">
+                    {new Date(ticket.createdAt).toLocaleString()}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

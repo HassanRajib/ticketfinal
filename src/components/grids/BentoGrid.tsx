@@ -70,13 +70,12 @@ const BentoGri = () => {
             // This is the 3-2-3 pattern logic.
             // It repeats every 8 items.
             const patternIndex = i % 8;
-            
-            // 
+
+            //
             // Row 1: 0, 1, 2 (1-col each)
             // Row 2: 3 (2-col), 4 (1-col)
             // Row 3: 5, 6, 7 (1-col each)
-            const itemClassName =
-              patternIndex === 3 ? "md:col-span-2" : "";
+            const itemClassName = patternIndex === 3 ? "md:col-span-2" : "";
 
             return (
               <Link to={`/event/${event._id}`} key={event._id}>

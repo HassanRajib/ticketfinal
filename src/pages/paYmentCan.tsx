@@ -5,8 +5,7 @@ const PaymentCancel = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const returnUrl =
-      localStorage.getItem("paymentReturnUrl") || "/";
+    const returnUrl = localStorage.getItem("paymentReturnUrl") || "/";
 
     // Cleanup
     localStorage.removeItem("paymentReturnUrl");

@@ -39,7 +39,9 @@ const AboutFe = () => {
           <h2 className="text-3xl font-semibold text-gray-900 dark:text-white">
             What We Offer
           </h2>
-          <p className="ml-2">We sell tickets for a wide range of categories, including:</p>
+          <p className="ml-2">
+            We sell tickets for a wide range of categories, including:
+          </p>
           <ul className="list-disc list-inside ml-2">
             <li>Concerts & Musical Shows</li>
             <li>Movies & Cinema</li>
@@ -97,7 +99,8 @@ const AboutFe = () => {
             <li>Account & data confidentiality</li>
           </ul>
           <p>
-            MytiketBD uses trusted payment gateways and encrypted technology to protect every transaction.
+            MytiketBD uses trusted payment gateways and encrypted technology to
+            protect every transaction.
           </p>
         </div>
         {/* WCU */}
@@ -116,16 +119,17 @@ const AboutFe = () => {
             <li>Personalized user dashboard</li>
           </ul>
           <p>
-            We don’t just sell tickets—we open doors to unforgettable experiences.
+            We don’t just sell tickets—we open doors to unforgettable
+            experiences.
           </p>
         </div>
         {/* con */}
         <div>
           <span className="font-bold">Contact</span>
-            <p className="ml-4">For support, partnerships, or queries:</p>
-            <a href="mailto:support@mytiketbd.com" className="ml-4 font-bold">
-              support@mytiketbd.com
-            </a>
+          <p className="ml-4">For support, partnerships, or queries:</p>
+          <a href="mailto:support@mytiketbd.com" className="ml-4 font-bold">
+            support@mytiketbd.com
+          </a>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 const MainCard = () => {
   return (
@@ -18,7 +18,7 @@ const MainCard = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MainCard
+export default MainCard;

@@ -44,10 +44,7 @@ export const initiatePayment = async ({
 };
 
 const serverUrl = BACKEND_URL;
-if (
-  !serverUrl ||
-  serverUrl.includes(BACKEND_URL)
-) {
+if (!serverUrl || serverUrl.includes(BACKEND_URL)) {
   console.error(
     "VITE_BACKEND_URL is not set. Please update the constant in TicketForm.tsx."
   );
@@ -104,18 +101,18 @@ const TicketForm = ({ eventId }: TicketFormProps) => {
       await initiatePayment({
         eventId,
         quantity: data.quantity, // assuming your form has quantity field
-        cus_name: data.name,     // match your form fields
+        cus_name: data.name, // match your form fields
         cus_email: data.email,
         cus_phone: data.phone,
       });
-      
+
       // After this line, user is redirected automatically
     } catch (err) {
       console.error(err);
       alert("Payment failed. Please try again.");
       setLoading(false);
     }
-  }
+  };
 
   return (
     <div className="max-w-md mx-auto mt-10 bg-white dark:bg-[#1a1a1a] shadow-lg rounded-lg overflow-hidden">
@@ -210,7 +207,10 @@ const TicketForm = ({ eventId }: TicketFormProps) => {
 
         {/* Ticket Count */}
         <div>
-          <label htmlFor="quantity" className="block text-sm font-medium dark:text-gray-200 text-gray-700 mb-2">
+          <label
+            htmlFor="quantity"
+            className="block text-sm font-medium dark:text-gray-200 text-gray-700 mb-2"
+          >
             Number of Tickets
           </label>
           <input

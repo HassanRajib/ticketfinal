@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import { ModeToggle } from "../mood/MoodTogol";
@@ -6,9 +6,8 @@ import { Search, Menu, X } from "lucide-react";
 import UserDrop from "../user/UserDrop";
 import { Link, useLocation } from "react-router-dom";
 
-
 const Head = () => {
-  const [hovered, setHovered] = useState <{[key: string]: boolean}>({  
+  const [hovered, setHovered] = useState<{ [key: string]: boolean }>({
     home: false,
     features: false,
     pricing: false,
@@ -17,15 +16,13 @@ const Head = () => {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const location = useLocation()
-
-  
+  const location = useLocation();
 
   const navItems = [
-    { label: "Home", loca:"/" },
-    { label: "Events", loca:"/upevent" },
-    { label: "About Us", loca:"/about" },
-    { label: "Contact US", loca:"/contact" },
+    { label: "Home", loca: "/" },
+    { label: "Events", loca: "/upevent" },
+    { label: "About Us", loca: "/about" },
+    { label: "Contact US", loca: "/contact" },
   ];
 
   return (
@@ -46,38 +43,45 @@ const Head = () => {
             className="text-gray-700 dark:text-white focus:outline-none"
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
-        
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-6 text-base">
-      {navItems.map(({ label, loca }) => {
-        const isActive = location.pathname === loca;
+          {navItems.map(({ label, loca }) => {
+            const isActive = location.pathname === loca;
 
-        return (
-          <Link
-            key={loca}
-            to={loca}
-            className={`relative font-medium transition hover:text-gray-900 dark:text-white ${
-              isActive ? "text-gray-900 dark:text-white" : "text-gray-600"
-            }`}
-            onMouseEnter={() => setHovered((prev) => ({ ...prev, [loca]: true }))}
-            onMouseLeave={() => setHovered((prev) => ({ ...prev, [loca]: false }))}
-          >
-            <span className="block">{label}</span>
-            <span className="absolute bottom-0 left-0 w-full h-0.5 -mb-1 overflow-hidden">
-              <span
-                className={`block origin-left transform bg-gray-900 dark:bg-white h-full transition-transform duration-300 ${
-                  hovered[loca] || isActive ? "scale-x-100" : "scale-x-0"
+            return (
+              <Link
+                key={loca}
+                to={loca}
+                className={`relative font-medium transition hover:text-gray-900 dark:text-white ${
+                  isActive ? "text-gray-900 dark:text-white" : "text-gray-600"
                 }`}
-              />
-            </span>
-          </Link>
-        );
-      })}
-    </nav>
+                onMouseEnter={() =>
+                  setHovered((prev) => ({ ...prev, [loca]: true }))
+                }
+                onMouseLeave={() =>
+                  setHovered((prev) => ({ ...prev, [loca]: false }))
+                }
+              >
+                <span className="block">{label}</span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 -mb-1 overflow-hidden">
+                  <span
+                    className={`block origin-left transform bg-gray-900 dark:bg-white h-full transition-transform duration-300 ${
+                      hovered[loca] || isActive ? "scale-x-100" : "scale-x-0"
+                    }`}
+                  />
+                </span>
+              </Link>
+            );
+          })}
+        </nav>
 
         {/* Right Tools */}
         <div className="hidden md:flex items-center space-x-3">

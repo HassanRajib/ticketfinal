@@ -1,7 +1,7 @@
-import { useParams } from 'react-router-dom'
+import { useParams } from "react-router-dom";
 
-import TicketForm from '@/components/single/TicketForm'
-import { useEffect, useState } from 'react'
+import TicketForm from "@/components/single/TicketForm";
+import { useEffect, useState } from "react";
 const serverUrl = import.meta.env.VITE_BACKEND_URL;
 
 interface EventType {
@@ -11,9 +11,7 @@ interface EventType {
   imageUrl?: string;
 }
 
-
 const SigEve = () => {
-
   const { id } = useParams();
   const [event, setEvent] = useState<EventType | null>(null);
   const [loading, setLoading] = useState(true);
@@ -27,14 +25,15 @@ const SigEve = () => {
           setLoading(false);
         })
         .catch((err) => {
-          console.error('Error fetching event:', err);
+          console.error("Error fetching event:", err);
           setLoading(false);
         });
     }
   }, [id]);
 
   if (loading) return <p className="text-center mt-10">Loading event...</p>;
-  if (!event) return <p className="text-center mt-10 text-red-500">Event not found</p>;
+  if (!event)
+    return <p className="text-center mt-10 text-red-500">Event not found</p>;
 
   return (
     <div className="bg-white dark:bg-[#0a0a0a] text-black dark:text-white mb-10">
@@ -48,13 +47,15 @@ const SigEve = () => {
             className="w-fit rounded-2xl border-b-4 border-red-600 mb-3"
           />
         </div>
-        <p className="mt-6 max-w-3xl mx-auto text-lg text-justify normal-case">{event.description}</p>
+        <p className="mt-6 max-w-3xl mx-auto text-lg text-justify normal-case">
+          {event.description}
+        </p>
       </div>
 
       {/* Ticket Form */}
       <TicketForm eventId={event._id} />
     </div>
-  )
-}
+  );
+};
 
-export default SigEve
+export default SigEve;

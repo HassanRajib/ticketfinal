@@ -1,70 +1,70 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import axios from 'axios';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const serverUrl = import.meta.env.VITE_BACKEND_URL;
 
 const eventFormSchema = z.object({
-  title: z.string().min(3, 'Title is required'),
-  date: z.string().min(1, 'Event date is required'),
-  lastPurchaseDate: z.string().min(1, 'Last purchase date is required'),
-  description: z.string().min(10, 'Description must be at least 10 characters'),
-  location: z.string().min(1, 'Location is required'),
-  totalTickets: z.coerce.number().min(1, 'Must have at least 1 ticket'),
-  price: z.coerce.number().min(1, 'Price cannot be negative'),
+  type: z.enum(["Event", "Movie", "Festival"], "Category is required"),
+  title: z.string().min(3, "Title is required"),
+  date: z.string().min(1, "Event date is required"),
+  lastPurchaseDate: z.string().min(1, "Last purchase date is required"),
+  description: z.string().min(10, "Description must be at least 10 characters"),
+  location: z.string().min(1, "Location is required"),
+  totalTickets: z.coerce.number().min(1, "Must have at least 1 ticket"),
+  price: z.coerce.number().min(1, "Price cannot be negative"),
   image: z.instanceof(FileList).optional(),
 });
-
 
 type EventFormData = z.infer<typeof eventFormSchema>;
 
 const EventForm = () => {
   const navigate = useNavigate();
-  const { id } = useParams(); 
-  const isEditing = Boolean(id); 
+  const { id } = useParams();
+  const isEditing = Boolean(id);
 
-  const [previewImage, setPreviewImage] = useState<string | undefined>(undefined);
+  const [previewImage, setPreviewImage] = useState<string | undefined>(
+    undefined
+  );
 
   const {
     register,
     handleSubmit,
-    reset, 
-    watch, 
+    reset,
+    watch,
     formState: { errors },
   } = useForm<EventFormData>({
     resolver: zodResolver(eventFormSchema) as any, // after resolver use as any
   });
 
-  
-  const imageFile = watch('image');
+  const imageFile = watch("image");
   useEffect(() => {
     if (imageFile && imageFile.length > 0) {
       const file = imageFile[0];
       const newPreviewUrl = URL.createObjectURL(file);
       setPreviewImage(newPreviewUrl);
-      
-      
+
       return () => URL.revokeObjectURL(newPreviewUrl);
     }
   }, [imageFile]);
 
-  
   useEffect(() => {
     if (isEditing) {
-      axios.get(`${serverUrl}api/events/${id}`)
-        .then(response => {
+      axios
+        .get(`${serverUrl}api/events/${id}`)
+        .then((response) => {
           const event = response.data;
-          
-          
-          const eventDate = new Date(event.date).toISOString().split('T')[0];
-          const lastPurchase = new Date(event.lastPurchaseDate).toISOString().split('T')[0];
-          
-          
+
+          const eventDate = new Date(event.date).toISOString().split("T")[0];
+          const lastPurchase = new Date(event.lastPurchaseDate)
+            .toISOString()
+            .split("T")[0];
+
           reset({
             title: event.title,
             date: eventDate,
@@ -73,58 +73,50 @@ const EventForm = () => {
             location: event.location,
             totalTickets: event.totalTickets,
             price: event.price,
-            
           });
-          
-          
+
           if (event.image) {
-            setPreviewImage(event.image); 
+            setPreviewImage(event.image);
           }
         })
-        .catch(err => console.error("Failed to fetch event", err));
+        .catch((err) => console.error("Failed to fetch event", err));
     }
   }, [id, isEditing, reset]);
 
-  
   const onSubmit: SubmitHandler<EventFormData> = async (data) => {
- 
     const formData = new FormData();
-    
-   
-    formData.append('title', data.title);
-    formData.append('date', data.date);
-    formData.append('lastPurchaseDate', data.lastPurchaseDate);
-    formData.append('description', data.description);
-    formData.append('location', data.location);
-    formData.append('totalTickets', String(data.totalTickets));
-    formData.append('price', String(data.price));
-    
-    
+
+    formData.append("type", data.type);
+    formData.append("title", data.title);
+    formData.append("date", data.date);
+    formData.append("lastPurchaseDate", data.lastPurchaseDate);
+    formData.append("description", data.description);
+    formData.append("location", data.location);
+    formData.append("totalTickets", String(data.totalTickets));
+    formData.append("price", String(data.price));
+
     if (data.image && data.image.length > 0) {
-      formData.append('image', data.image[0]);
+      formData.append("image", data.image[0]);
     }
 
     try {
       if (isEditing) {
-        
         await axios.put(`${serverUrl}api/events/${id}`, formData);
       } else {
-        
         await axios.post(`${serverUrl}api/events`, formData);
       }
-      navigate('/admin/events');
+      navigate("/admin/events");
     } catch (error) {
-      console.error('Failed to save event:', error);
+      console.error("Failed to save event:", error);
     }
   };
 
   return (
-    
-    <div className="p-6"> 
+    <div className="p-6">
       <h1 className="text-2xl font-bold mb-6 text-black">
-        {isEditing ? 'Update Event' : 'Add New Event'}
+        {isEditing ? "Update Event" : "Add New Event"}
       </h1>
-      
+
       {/* This is your form JSX, placed directly onto the page.
         - onSubmit is now handled by react-hook-form.
         - 'type' is replaced with 'isEditing'.
@@ -136,6 +128,22 @@ const EventForm = () => {
           className="grid grid-cols-1 md:grid-cols-2 gap-4"
           encType="multipart/form-data"
         >
+          {/* catagory */}
+          <div>
+            <label className="text-sm text-black">Category</label>
+            <select
+              {...register("type")}
+              className="w-full border px-3 py-2 rounded text-black border-blue-950"
+            >
+              <option value="">Select a category</option>
+              <option value="Event">Event</option>
+              <option value="Movie">Movie</option>
+              <option value="Festival">Festival</option>
+            </select>
+            {errors.type && (
+              <p className="text-xs text-red-500">{errors.type.message}</p>
+            )}
+          </div>
           {/* Title */}
           <div>
             <label className="text-sm text-black">Title</label>
@@ -175,7 +183,7 @@ const EventForm = () => {
               </p>
             )}
           </div>
-          
+
           {/* Location */}
           <div>
             <label className="text-sm text-black">Event Location</label>
@@ -187,7 +195,7 @@ const EventForm = () => {
               <p className="text-xs text-red-500">{errors.location.message}</p>
             )}
           </div>
-          
+
           {/* Total Tickets */}
           <div>
             <label className="text-sm text-black">Total Tickets</label>
@@ -224,8 +232,10 @@ const EventForm = () => {
               className="w-full border px-3 py-2 rounded text-black border-blue-950"
               rows={3}
             />
-             {errors.description && (
-              <p className="text-xs text-red-500">{errors.description.message}</p>
+            {errors.description && (
+              <p className="text-xs text-red-500">
+                {errors.description.message}
+              </p>
             )}
           </div>
 
@@ -235,7 +245,7 @@ const EventForm = () => {
             <input
               type="file"
               accept="image/*"
-              {...register("image")} 
+              {...register("image")}
               className="w-full border px-3 py-2 rounded text-black border-blue-950"
             />
             {previewImage && (
@@ -251,7 +261,7 @@ const EventForm = () => {
           <div className="md:col-span-2 flex justify-end gap-3 mt-4">
             <button
               type="button"
-              onClick={() => navigate('/admin/events')} 
+              onClick={() => navigate("/admin/events")}
               className="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400"
             >
               Cancel
@@ -260,7 +270,8 @@ const EventForm = () => {
               type="submit"
               className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
             >
-              {isEditing ? "Update Event" : "Add Event"} {/* Changed from type */}
+              {isEditing ? "Update Event" : "Add Event"}{" "}
+              {/* Changed from type */}
             </button>
           </div>
         </form>

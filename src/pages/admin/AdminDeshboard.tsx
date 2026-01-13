@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import axios from "axios";
 const serverUrl = import.meta.env.VITE_BACKEND_URL;
 
 const AdminDashboard = () => {
@@ -11,7 +11,7 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const token = localStorage.getItem('adminToken');
+      const token = localStorage.getItem("adminToken");
       const res = await axios.get(`${serverUrl}api/admin/dashboard-data`, {
         headers: {
           Authorization: `Bearer ${token}`,

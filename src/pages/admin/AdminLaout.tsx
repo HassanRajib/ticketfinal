@@ -1,14 +1,11 @@
-
-import { Outlet, NavLink, useNavigate } from 'react-router-dom'
+import { Outlet, NavLink, useNavigate } from "react-router-dom";
 
 const AdminLaout = () => {
-
-
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('adminToken');
-    navigate('/'); 
+    localStorage.removeItem("adminToken");
+    navigate("/");
   };
 
   return (
@@ -17,11 +14,21 @@ const AdminLaout = () => {
       <aside className="w-[14%] md:w-[8%] lg:w-[16%] xl:w-[20%] p-4 space-y-4">
         <h2 className="text-xl font-bold mb-6">Admin Panel</h2>
         <nav className="flex flex-col gap-3">
-          <NavLink to="/admin" className="hover:text-blue-400">Dashboard</NavLink>
-          <NavLink to="/admin/events" className="hover:text-blue-400">Manage Events</NavLink>
-          <NavLink to="/admin/purchases" className="hover:text-blue-400">Purchases</NavLink>
-          <NavLink to="/admin/users" className="hover:text-blue-400">Users</NavLink>
-          <NavLink to="/admin/past-events" className="hover:text-blue-400">Past Events</NavLink>
+          <NavLink to="/admin" className="hover:text-blue-400">
+            Dashboard
+          </NavLink>
+          <NavLink to="/admin/events" className="hover:text-blue-400">
+            Manage Events
+          </NavLink>
+          <NavLink to="/admin/purchases" className="hover:text-blue-400">
+            Purchases
+          </NavLink>
+          <NavLink to="/admin/users" className="hover:text-blue-400">
+            Users
+          </NavLink>
+          <NavLink to="/admin/past-events" className="hover:text-blue-400">
+            Past Events
+          </NavLink>
         </nav>
 
         <button
@@ -37,7 +44,7 @@ const AdminLaout = () => {
         <Outlet />
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default AdminLaout
+export default AdminLaout;

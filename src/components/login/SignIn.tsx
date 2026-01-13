@@ -28,7 +28,7 @@ const SignInForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
- 
+
     const newErrors = {
       username: "",
       password: "",
@@ -123,9 +123,7 @@ const SignInForm: React.FC = () => {
             Sign In
           </button>
           {loginError && (
-            <p className="text-red-600 font-medium text-center">
-              {loginError}
-            </p>
+            <p className="text-red-600 font-medium text-center">{loginError}</p>
           )}
         </form>
       </div>

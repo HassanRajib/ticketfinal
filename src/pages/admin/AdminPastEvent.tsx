@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 
 interface Event {
@@ -23,7 +22,9 @@ const AdminPastEvents = () => {
 
         // Filter past events based on event date
         const now = new Date();
-        const pastEvents = data.filter((event: Event) => new Date(event.date) < now);
+        const pastEvents = data.filter(
+          (event: Event) => new Date(event.date) < now
+        );
 
         setEvents(pastEvents);
       } catch (err) {

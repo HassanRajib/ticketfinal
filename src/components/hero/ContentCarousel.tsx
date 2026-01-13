@@ -1,54 +1,59 @@
-"use client"
+"use client";
 
-import React, { useEffect, useState } from "react"
-// 1. Import Link from react-router-dom (or next/link if using Next.js)
-import { Link } from "react-router-dom"
-import Autoplay from "embla-carousel-autoplay"
-import { Card, CardContent } from "@/components/ui/card"
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Autoplay from "embla-carousel-autoplay";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "../ui/carousel"
+} from "../ui/carousel";
 
 interface EventType {
-  _id: string // 2. Added an ID field for linking
-  title: string
-  imageUrl: string
+  _id: string;
+  title: string;
+  imageUrl: string;
 }
 
-const HeroCaro = () => {
-  const [events, setEvents] = useState<EventType[]>([])
-  const [loading, setLoading] = useState(true)
+interface HeroCaroProps {
+  type: "Event" | "Movie" | "Festival";
+}
+
+const HeroCaro = ({ type }: HeroCaroProps) => {
+  const [events, setEvents] = useState<EventType[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const plugin = React.useRef(
     Autoplay({
       delay: 2000,
       stopOnInteraction: false,
-      stopOnMouseEnter: true, // 3. Let the plugin handle hover state
+      stopOnMouseEnter: true,
     })
-  )
+  );
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/events`)
-        const data: EventType[] = await res.json()
-        setEvents(data)
+        const res = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}api/events?type=${type}`
+        );
+        const data: EventType[] = await res.json();
+        setEvents(data);
       } catch (error) {
-        console.error("Error fetching events:", error)
+        console.error("Error fetching events:", error);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    fetchEvents()
-  }, [])
+    fetchEvents();
+  }, [type]);
 
   if (loading) {
-    return <p className="text-center text-gray-500">Loading events...</p>
+    return <p className="text-center text-gray-500">Loading events...</p>;
   }
 
   return (
@@ -57,21 +62,21 @@ const HeroCaro = () => {
         plugins={[plugin.current]}
         opts={{ loop: true }}
         className="w-full max-w-5xl mx-auto"
-        // 4. Removed onMouseEnter and onMouseLeave props
       >
         <CarouselContent>
           {events.map((event) => (
             <CarouselItem
-              key={event._id} // 5. Use the event ID as the key
+              key={event._id}
               className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
             >
-              {/* 6. Wrap the card content in a Link */}
-              <Link to={`/event/${event._id}`}>
+              <Link to={`/${type.toLowerCase()}/${event._id}`}>
                 <div className="p-2 flex flex-col items-center">
                   <Card className="overflow-hidden rounded-lg">
                     <CardContent className="flex items-center justify-center p-0">
                       <img
-                        src={`${import.meta.env.VITE_BACKEND_URL}${event.imageUrl}`}
+                        src={`${import.meta.env.VITE_BACKEND_URL}${
+                          event.imageUrl
+                        }`}
                         alt={event.title}
                         className="object-cover w-full h-48 sm:h-56 md:h-64 lg:h-72"
                       />
@@ -85,11 +90,12 @@ const HeroCaro = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
+
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
     </div>
-  )
-}
+  );
+};
 
-export default HeroCaro
+export default HeroCaro;

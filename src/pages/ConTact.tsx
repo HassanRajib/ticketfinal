@@ -1,14 +1,11 @@
-import ConForm from '@/components/contact/ConForm'
-
+import ConForm from "@/components/contact/ConForm";
 
 const ConTact = () => {
   return (
     <div>
-
-        <ConForm/>
-
+      <ConForm />
     </div>
-  )
-}
+  );
+};
 
-export default ConTact
+export default ConTact;

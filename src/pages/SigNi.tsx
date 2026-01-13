@@ -1,15 +1,11 @@
-
-import SignInForm from '@/components/login/SignIn'
-
+import SignInForm from "@/components/login/SignIn";
 
 const SigNi = () => {
   return (
     <div>
-
-        <SignInForm/>
-
+      <SignInForm />
     </div>
-  )
-}
+  );
+};
 
-export default SigNi
+export default SigNi;
