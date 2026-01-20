@@ -1,6 +1,145 @@
 const Privacy = () => {
   return (
+    // eng
     <div className="max-w-7xl m-auto">
+      {/* ban */}
+        <div className="w-5xl m-auto mt-3">
+          <h1 className="font-bold text-3xl text-center pb-4">
+            প্রাইভেসি পলিসি{" "}
+          </h1>
+          <p>সর্বশেষ হালনাগাদ: </p>
+          <p className=" mb-4">
+            এই নীতিমালায় বর্ণনা করা হয়েছে কীভাবে MytikitBD আপনার তথ্য সংগ্রহ,
+            ব্যবহার ও সুরক্ষা করে।
+          </p>
+        </div>
+        <div className="w-5xl m-auto">
+          <ol className="list-decimal list-inside space-y-4">
+            {/* 1 */}
+            <li>
+              <span className="font-bold">আমরা যেসব তথ্য সংগ্রহ করি</span>
+              {/* <p className="ml-4">We may collect:</p> */}
+              <ul className="list-[lower-alpha] list-inside ml-4">
+                <li>
+                  ব্যক্তিগত তথ্য
+                  <ul className="list-disc list-inside ml-2">
+                    <li>নাম</li>
+                    <li>ফোন নম্বর</li>
+                    <li>ইমেইল</li>
+                    <li>ঠিকানা (প্রযোজ্য হলে)</li>
+                    <li>জন্মতারিখ (প্রবেশ সীমাবদ্ধতার জন্য প্রয়োজন হলে)</li>
+                  </ul>
+                </li>
+                <li>
+                  পেমেন্ট তথ্য
+                  <ul className="list-disc list-inside ml-2">
+                    <li>মোবাইল ব্যাংকিং লেনদেন তথ্য</li>
+                    <li>
+                      কার্ড তথ্য (নিরাপদ থার্ড-পার্টি গেটওয়ের মাধ্যমে) আমরা
+                      পূর্ণ কার্ড তথ্য সংরক্ষণ করি না।
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  টেকনিক্যাল তথ্য
+                  <ul className="list-disc list-inside ml-2">
+                    <li>IP ঠিকানা</li>
+                    <li>ব্রাউজার টাইপ</li>
+                    <li>ডিভাইস তথ্য</li>
+                    <li>কুকিজ ও ব্যবহারের তথ্য</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            {/* 2 */}
+            <li>
+              <span className="font-bold">তথ্য ব্যবহারের উদ্দেশ্য</span>
+              {/* <p className="ml-4">We use user data for:</p> */}
+              <ul className="list-disc list-inside ml-6">
+                <li>টিকিট ক্রয় ও ডেলিভারি</li>
+                <li>ইভেন্ট নোটিফিকেশন</li>
+                <li>পেমেন্ট যাচাই</li>
+                <li>কাস্টমার সাপোর্ট</li>
+                <li>প্ল্যাটফর্ম উন্নয়ন</li>
+                <li>জালিয়াতি প্রতিরোধ</li>
+              </ul>
+            </li>
+            {/* 3 */}
+            <li>
+              <span className="font-bold">তথ্য শেয়ার</span>
+              <p className="ml-4">
+                আমরা প্রয়োজনীয় সীমিত তথ্য শেয়ার করতে পারি:
+              </p>
+              <ul className="list-disc list-inside ml-6">
+                <li>ইভেন্ট অর্গানাইজারের সাথে</li>
+                <li>পেমেন্ট গেটওয়ের সাথে</li>
+                <li>ডেলিভারি সার্ভিসের সাথে</li>
+                <li>আইন প্রয়োগকারী সংস্থার সাথে (আইনগত প্রয়োজনে)</li>
+              </ul>
+              <p className="ml-4">
+                আমরা কখনোই ব্যক্তিগত তথ্য বিক্রি বা ভাড়া দিই না।
+              </p>
+            </li>
+            {/* 4 */}
+            <li>
+              <span className="font-bold">কুকিজ</span>
+              <p className="ml-4">আমাদের ওয়েবসাইট কুকিজ ব্যবহার করে:</p>
+              <ul className="list-disc list-inside ml-4">
+                <li>ইউজার এক্সপেরিয়েন্স উন্নত করতে</li>
+                <li>লগইন তথ্য সংরক্ষণ করতে</li>
+                <li>ট্রাফিক বিশ্লেষণ করতে</li>
+              </ul>
+              <p className="ml-4">
+                ব্যবহারকারী ব্রাউজার সেটিংস থেকে কুকিজ বন্ধ করতে পারেন।
+              </p>
+            </li>
+            {/* 5 */}
+            <li>
+              <span className="font-bold">তথ্য সুরক্ষা</span>
+              <p className="ml-4">আমরা ব্যবহার করি:</p>
+              <ul className="list-disc list-inside ml-6">
+                <li>SSL এনক্রিপশন</li>
+                <li>সিকিউর সার্ভার</li>
+                <li>সীমিত অ্যাক্সেস কন্ট্রোল</li>
+              </ul>
+              <p className="ml-4">তবে অনলাইন সিস্টেম ১০০% নিরাপদ নয়।</p>
+            </li>
+            {/* 6 */}
+            <li>
+              <span className="font-bold">থার্ড পার্টি লিংক</span>
+              <p className="ml-4">
+                আমাদের ওয়েবসাইটে তৃতীয় পক্ষের লিংক থাকতে পারে। তাদের প্রাইভেসি
+                নীতির জন্য আমরা দায়ী নই।
+              </p>
+            </li>
+            {/* 7 */}
+            <li>
+              <span className="font-bold">ব্যবহারকারীর অধিকার</span>
+              <p className="ml-4">ব্যবহারকারী চাইলে:</p>
+              <ul className="list-disc list-inside ml-4">
+                <li>সংরক্ষিত তথ্য দেখতে পারেন</li>
+                <li>সংশোধনের অনুরোধ করতে পারেন</li>
+                <li>অ্যাকাউন্ট ডিলিটের অনুরোধ করতে পারেন</li>
+              </ul>
+              <p className="ml-4">ইমেইলের মাধ্যমে আমাদের জানাতে হবে।</p>
+            </li>
+            <li>
+              <span className="font-bold">নীতিমালা হালনাগাদ</span>
+              <p className="ml-4">
+                সময় সময় এই নীতিমালা পরিবর্তিত হতে পারে। ওয়েবসাইটে আপডেটেড
+                তারিখসহ প্রকাশ করা হবে।
+              </p>
+            </li>
+            {/* 8 */}
+            <li>
+              <span className="font-bold">যোগাযোগ</span>
+              <p className="ml-4">For support, partnerships, or queries:</p>
+              <a href="mailto:support@mytiketbd.com" className="ml-6 font-bold">
+                support@mytiketbd.com
+              </a>
+            </li>
+          </ol>
+        </div>
       <div className="w-5xl m-auto">
         <h1 className="font-bold text-3xl text-center pb-4">Privacy Policy</h1>
 
@@ -94,7 +233,7 @@ const Privacy = () => {
             <ul className="list-disc list-inside ml-6">
               <li>SSL encryption</li>
               <li>Secure servers.</li>
-              <li>• Strict access control to protect your information .</li>
+              <li>Strict access control to protect your information .</li>
             </ul>
             <p className="ml-4">However, no online system is 100% secure.</p>
           </li>
@@ -135,6 +274,8 @@ const Privacy = () => {
         </ol>
       </div>
     </div>
+
+    // ban
   );
 };
 

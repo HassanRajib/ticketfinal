@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
+import ScrollToTop from "./components/mood/ScrollToTop";
 
 import { ThemeProvider } from "./components/mood/DarkMood";
 import UpEve from "./pages/UpEve";
@@ -26,6 +27,7 @@ function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       {!isAdmin && <Head />}
+        <ScrollToTop/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="upevent" element={<UpEve />} />
@@ -36,6 +38,7 @@ function App() {
         <Route path="terms" element={<Terms />} />
         <Route path="refund" element={<Refund />} />
         <Route path="privacy" element={<Privacy />} />
+
         <Route path="/payment-success" element={<PaymentSuccess />} />
         <Route path="/payment-cancel" element={<PaymentCancel />} />
 

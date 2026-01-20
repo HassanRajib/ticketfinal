@@ -21,17 +21,17 @@ const Footer = () => {
   return (
     <footer className="bg-white dark:bg-[#0a0a0a]">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        <div className="w-full px-4 py-8 bg-white dark:bg-[#0a0a0a]">
+        <div className="w-full px-4 py-4 bg-white dark:bg-[#0a0a0a]">
           <div className="max-w-screen-xl mx-auto md:flex md:justify-between md:items-start">
             {/* Logo Section */}
-            <div className="mb-10 md:mb-0 md:w-1/4 px-4">
+            <div className="mb-10 md:mb-0 md:w-1/4 px-4 -mt-2">
               <a href="/" className="flex items-center">
                 <img
                   src="../image/variation.png"
                   className="h-8 me-3"
                   alt="Logo"
                 />
-                <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+                <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white mb-3">
                   MyTicketBD
                 </span>
               </a>
@@ -43,10 +43,10 @@ const Footer = () => {
             </div>
 
             {/* Links and Newsletter */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:w-3/4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:w-3/4 md:pl-40">
               {/* Resources */}
-              <div>
-                <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <div className="items-center">
+                <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase dark:text-white items-center">
                   Resources
                 </h2>
                 <nav className="hidden md:flex flex-col space-x-6 text-base space-y-2">
