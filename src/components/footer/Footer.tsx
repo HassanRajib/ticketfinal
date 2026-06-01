@@ -49,7 +49,7 @@ const Footer = () => {
                 <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase dark:text-white items-center">
                   Resources
                 </h2>
-                <nav className="hidden md:flex flex-col space-x-6 text-base space-y-2">
+                <nav className="flex flex-col sm:flex-col space-x-6 text-base space-y-2">
                   {navItems.map(({ label, key }) => (
                     <NavLink
                       to={key}
@@ -73,7 +73,7 @@ const Footer = () => {
                   Legal
                 </h2>
 
-                <nav className="hidden md:flex flex-col space-x-6 text-base space-y-2">
+                <nav className="flex flex-col space-x-6 text-base space-y-2">
                   {legalItems.map(({ label, key }) => (
                     <NavLink
                       to={key}

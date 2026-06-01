@@ -2,11 +2,11 @@
 
 const AboutCa = () => {
   return (
-    <div>
-      <div className="w-5xl mx-auto py-5">
+    <div className="px-4">
+      <div className="max-w-5xl mx-auto py-5">
         {/* <img src="../image/tha.jpeg" alt="" className='w-full h-[650px]' /> */}
-        <h2 className="font-bold text-3xl text-center pb-4">About Us</h2>
-        <p className="text-justify p-3 text-lg">
+        <h2 className="font-bold text-2xl sm:text-3xl text-center pb-4">About Us</h2>
+        <p className="text-justify text-base p-3 sm:text-lg sm:p-2">
           MytiketBD is a smart, fast, and user-friendly online ticketing
           platform designed to make ticket purchasing easier than ever for
           people across Bangladesh. Whether you're planning to enjoy a live
