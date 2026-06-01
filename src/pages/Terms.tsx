@@ -183,7 +183,7 @@ const Terms = () => {
       </div>
 
       {/* en */}
-      <div className="max-w-5xl m-auto">
+      <div className="max-w-5xl m-auto pt-6">
         <h1 className="font-bold text-3xl text-center pb-4">
           Terms & Conditions
         </h1>

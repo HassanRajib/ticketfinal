@@ -12,8 +12,8 @@ const HeroSlider = () => {
   const sliderRef = useRef<any>(null);
 
   return (
-    <div className="relative w-full">
-      <ImagesSlider ref={sliderRef} className="h-[40rem]" images={image}>
+    <div className="relative w-full ">
+      <ImagesSlider ref={sliderRef} className="h-[250px] sm:h-[350px] md:h-[500px] lg:h-[40rem]" images={image}>
         <motion.div
           initial={{
             opacity: 0,
@@ -26,7 +26,7 @@ const HeroSlider = () => {
           transition={{
             duration: 0.6,
           }}
-          className="z-50 flex flex-col justify-center items-center"
+          className="z-50 flex flex-col justify-center items-center sm:max-w-3xl"
         >
           <motion.p className="font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent py-4"></motion.p>
           {/* <button className="px-4 py-2 backdrop-blur-sm borde border-emerald-500/20 text-white mx-auto text-center rounded-full relative mt-4">
@@ -39,9 +39,9 @@ const HeroSlider = () => {
       {/* Prev / Next Buttons */}
       <button
         onClick={() => sliderRef.current.prev()}
-        className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/40 transition"
+        className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/20 backdrop-blur-md text-white  px-4 py-2 rounded-full hover:bg-white/40 transition"
       >
-        <ArrowLeft/>
+        <ArrowLeft />
       </button>
       <button
         onClick={() => sliderRef.current.next()}
