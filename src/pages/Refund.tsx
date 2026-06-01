@@ -1,11 +1,11 @@
 const Refund = () => {
   return (
-    <div className="max-w-7xl m-auto">
+    <div className="max-w-7xl m-auto px-4">
       {/* ban */}
-      <div className="w-5xl m-auto mt-3">
+      <div className="max-w-5xl m-auto mt-3">
         <h1 className="font-bold text-3xl text-center pb-4">রিফান্ড নীতিমালা </h1>
       </div>
-      <div className="w-5xl m-auto">
+      <div className="max-w-5xl m-auto">
         <ol className="list-decimal list-inside space-y-4">
           {/* 1 */}
           <li>
@@ -96,10 +96,10 @@ const Refund = () => {
         </ol>
       </div>
       {/* eng */}
-      <div className="w-5xl m-auto">
+      <div className="max-w-5xl m-auto">
         <h1 className="font-bold text-3xl text-center pb-4">Refund Policy</h1>
       </div>
-      <div className="w-5xl m-auto">
+      <div className="max-w-5xl m-auto">
         <ol className="list-decimal list-inside space-y-4">
           {/* 1 */}
           <li>

@@ -1,9 +1,9 @@
 const Terms = () => {
   return (
-    <div className="max-w-7xl m-auto">
+    <div className="max-w-7xl m-auto px-4">
 
       {/* ban */}
-      <div className="w-5xl m-auto mt-3">
+      <div className="max-w-5xl m-auto mt-3">
         <h1 className="font-bold text-3xl text-center pb-4">
           শর্তাবলি
         </h1>
@@ -13,7 +13,7 @@ const Terms = () => {
 
         </p>
       </div>
-      <div className="w-5xl m-auto">
+      <div className="max-w-5xl m-auto">
         <ol className="list-decimal list-inside space-y-4">
           <li>
             <span className="font-bold">সংজ্ঞা</span>
@@ -183,7 +183,7 @@ const Terms = () => {
       </div>
 
       {/* en */}
-      <div className="w-5xl m-auto">
+      <div className="max-w-5xl m-auto">
         <h1 className="font-bold text-3xl text-center pb-4">
           Terms & Conditions
         </h1>
@@ -194,7 +194,7 @@ const Terms = () => {
           platform.
         </p>
       </div>
-      <div className="w-5xl m-auto">
+      <div className="max-w-5xl m-auto">
         <ol className="list-decimal list-inside space-y-4">
           <li>
             <span className="font-bold">Definition</span>

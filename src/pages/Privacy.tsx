@@ -1,9 +1,9 @@
 const Privacy = () => {
   return (
     // eng
-    <div className="max-w-7xl m-auto">
+    <div className="max-w-7xl m-auto px-4">
       {/* ban */}
-        <div className="w-5xl m-auto mt-3">
+        <div className="max-w-5xl m-auto mt-3">
           <h1 className="font-bold text-3xl text-center pb-4">
             প্রাইভেসি পলিসি{" "}
           </h1>
@@ -13,7 +13,7 @@ const Privacy = () => {
             ব্যবহার ও সুরক্ষা করে।
           </p>
         </div>
-        <div className="w-5xl m-auto">
+        <div className="max-w-5xl m-auto">
           <ol className="list-decimal list-inside space-y-4">
             {/* 1 */}
             <li>
@@ -140,7 +140,7 @@ const Privacy = () => {
             </li>
           </ol>
         </div>
-      <div className="w-5xl m-auto">
+      <div className="max-w-5xl m-auto pt-6">
         <h1 className="font-bold text-3xl text-center pb-4">Privacy Policy</h1>
 
         <p className=" mb-4">
@@ -148,7 +148,7 @@ const Privacy = () => {
           and protects your information.
         </p>
       </div>
-      <div className="w-5xl m-auto">
+      <div className="max-w-5xl m-auto">
         <ol className="list-decimal list-inside space-y-4">
           {/* 1 */}
           <li>
