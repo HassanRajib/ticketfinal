@@ -24,16 +24,16 @@ const Footer = () => {
         <div className="w-full px-4 py-4 bg-white dark:bg-[#0a0a0a]">
           <div className="max-w-screen-xl mx-auto md:flex md:justify-between md:items-start">
             {/* Logo Section */}
-            <div className="mb-10 md:mb-0 md:w-1/4 px-4 -mt-2">
+            <div className="mb-5 md:mb-0 md:w-1/4 px-4 -mt-3">
               <a href="/" className="flex items-center">
                 <img
-                  src="../image/variation.png"
-                  className="h-8 me-3"
+                  src="../image/logo.png"
+                  className="h-18 mb-3"
                   alt="Logo"
                 />
-                <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white mb-3">
+                {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white mb-3">
                   MyTicketBD
-                </span>
+                </span> */}
               </a>
               <p className="text-justify">
                 MytikitBD is a smart, fast, and user-friendly online ticketing

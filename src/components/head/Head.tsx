@@ -31,9 +31,9 @@ const Head = () => {
         {/* Brand Logo */}
         <Link
           to="/"
-          className="text-2xl font-extrabold text-black dark:text-white font-nhead"
+          className="w-[200px] h-[80px] flex items-center justify-center"
         >
-          MyTiketBd
+          <img src="public/image/logo.png" alt="MyTiketBd" />
         </Link>
 
         {/* Mobile Hamburger */}
