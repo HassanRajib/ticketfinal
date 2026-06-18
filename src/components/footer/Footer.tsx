@@ -26,11 +26,7 @@ const Footer = () => {
             {/* Logo Section */}
             <div className="mb-5 md:mb-0 md:w-1/4 px-4 -mt-3">
               <a href="/" className="flex items-center">
-                <img
-                  src="../image/logo.png"
-                  className="h-18 mb-3"
-                  alt="Logo"
-                />
+                <img src="../image/logo.png" className="h-18 mb-3" alt="Logo" />
                 {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white mb-3">
                   MyTicketBD
                 </span> */}

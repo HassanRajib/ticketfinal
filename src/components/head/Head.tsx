@@ -29,12 +29,16 @@ const Head = () => {
     <header className="relative w-full px-6 text-gray-700 bg-white dark:bg-[#0A0A0A] body-font rounded-full">
       <div className="flex flex-wrap items-center justify-between py-1 mx-auto max-w-7xl">
         {/* Brand Logo */}
-        <Link
+        {/* <Link
           to="/"
           className="w-[200px] h-[80px] flex items-center justify-center"
         >
-          <img src="public/image/logo.png" alt="MyTiketBd" />
-        </Link>
+          <img src="../image/logo.png" alt="MyTiketBd" />
+        </Link> */}
+
+        <a href="/" className="w-[200px] h-[80px] flex items-center justify-center">
+        <img src="../image/logo.png" alt="MyTiketBd" />
+        </a>
 
         {/* Mobile Hamburger */}
         <div className="md:hidden">
